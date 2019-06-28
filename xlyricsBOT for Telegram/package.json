@@ -1,0 +1,23 @@
+{
+  "name": "xlyrics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "http-json.js",
+  "engines": {
+    "node": "11.9.0",
+    "npm": "6.7.0"
+  },
+  "scripts": {
+    "test": "make test",
+    "start": "node http-json.js"
+  },
+  "author": "Mxnxn",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "forever": "^0.15.3",
+    "forever-monitor": "^1.7.1",
+    "https": "^1.0.0",
+    "jssoup": "0.0.10"
+  }
+}

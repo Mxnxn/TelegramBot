@@ -3,7 +3,7 @@ var Jssoup = require('jssoup').default;
 const express = require('express');
 var app = express();
 
-const teleurl = "https://api.telegram.org/bot580065251:AAEGYP4PCYyk_0emgJR5eq2bCCDWb28_jsE/getUpdates"
+const teleurl = "https://api.telegram.org/bot<botid>:<token>/getUpdates"
 
 let json = "";
 let song = "";
@@ -41,7 +41,7 @@ let comm = "" ;
                     
                     if(comm === '!s')  // SEARCH COMMAND
                     {
-                        const urlx = "https://api.genius.com/search?q="+song+"%20"+singer+"&access_token=4ecFpBWrxMtxKnc3WkB2B07MPoayDn4DjF0cWqQirY-nsC17vvq3LPoSAD6HDvJc"
+                        const urlx = "https://api.genius.com/search?q="+song+"%20"+singer+"&access_token=<ADD YOU ACCESS TOKEN>"
                         https.get(urlx,(httpRes)=>{
                             let body = "";
                             let path = "";
@@ -59,7 +59,7 @@ let comm = "" ;
                                         console.log(`${path}`);
                                         // serverRes.writeHead(200,{'Content-Type':'text/html'});
                                         // serverRes.write(`LINK : ${path}`);
-                                        const delurl = "https://api.telegram.org/bot580065251:AAEGYP4PCYyk_0emgJR5eq2bCCDWb28_jsE/getUpdates?offset="+offset;
+                                        const delurl = "https://api.telegram.org/bot<botid>:<token>/getUpdates?offset="+offset;
                                         https.get(delurl,res=>{
                                             res.on('end',()=>{
                                                 console.log("Deleted");
@@ -91,7 +91,7 @@ let comm = "" ;
                                                 var lol = new Jssoup(artist);
                                                 artist = lol.getText();
                                                 console.log(artist);
-                                                var ret = "https://api.telegram.org/bot580065251:AAEGYP4PCYyk_0emgJR5eq2bCCDWb28_jsE/sendMessage?chat_id="+chat_id+"&text="+sng+"-"+artist+"%0A"+"%0A"+newData;
+                                                var ret = "https://api.telegram.org/bot<botid>:<token>/sendMessage?chat_id="+chat_id+"&text="+sng+"-"+artist+"%0A"+"%0A"+newData;
                                                 
                                                 https.get(ret,(res)=>{
                                                     res.on('end',()=>{
@@ -112,14 +112,14 @@ let comm = "" ;
                                         
                                         console.log('ERRRORR : '+e.stack);
                                         
-                                        var ret = "https://api.telegram.org/bot580065251:AAEGYP4PCYyk_0emgJR5eq2bCCDWb28_jsE/sendMessage?chat_id="+chat_id+"&text=SEARCH is not able to find song";
+                                        var ret = "https://api.telegram.org/bot<botid>:<token>/sendMessage?chat_id="+chat_id+"&text=SEARCH is not able to find song";
                                         https.get(ret,(res)=>{
                                             res.on('end',()=>{
                                                 console.log('LINK SEND');
                                             });
                                         }); // IF ERROR GENERATED REQUEST SHOULD BE DELETE FROM TELEGRAM
                                         
-                                        const delurl = "https://api.telegram.org/bot580065251:AAEGYP4PCYyk_0emgJR5eq2bCCDWb28_jsE/getUpdates?offset="+offset;
+                                        const delurl = "https://api.telegram.org/bot<botid>:<token>/getUpdates?offset="+offset;
                                         https.get(delurl,res=>{
                                             console.log("Deleted");
                                         });
@@ -129,7 +129,7 @@ let comm = "" ;
                         });
                     }else if(comm === "!h"){
                         
-                        var ret = "https://api.telegram.org/bot580065251:AAEGYP4PCYyk_0emgJR5eq2bCCDWb28_jsE/sendMessage?chat_id="+chat_id+"&text=Assist from xLyrics%20%20:"+"%0A"+"%0A"+"Commands%20:"+"%0A"+"%0A"+"1)  %21s : for song"+"%0A"+"eg%20: %21s <song> <artist>"+"%0A"+"%0A"+"2)  !t : for Compliment "+"%0A"+"%0A"+"More are coming soon";
+                        var ret = "https://api.telegram.org/bot<botid>:<token>/sendMessage?chat_id="+chat_id+"&text=Assist from xLyrics%20%20:"+"%0A"+"%0A"+"Commands%20:"+"%0A"+"%0A"+"1)  %21s : for song"+"%0A"+"eg%20: %21s <song> <artist>"+"%0A"+"%0A"+"2)  !t : for Compliment "+"%0A"+"%0A"+"More are coming soon";
                         https.get(ret,(res)=>{
                             res.on('end',()=>{
                                 console.log('LINK SEND');
@@ -137,14 +137,14 @@ let comm = "" ;
                         
                         })      //HELP ASSIST MESSAGE FOR USER ON DEMAND OF HELP
                         
-                        const delurl = "https://api.telegram.org/bot580065251:AAEGYP4PCYyk_0emgJR5eq2bCCDWb28_jsE/getUpdates?offset="+offset;
+                        const delurl = "https://api.telegram.org/bot<botid>:<token>/getUpdates?offset="+offset;
                         https.get(delurl,res=>{
                             console.log("Deleted");
                         }); // DELETING REQUEST FOR WRONG COMMAND
 
                     }else if(comm === "!t"){
                         
-                        var ret = "https://api.telegram.org/bot580065251:AAEGYP4PCYyk_0emgJR5eq2bCCDWb28_jsE/sendMessage?chat_id="+chat_id+"&text=It's my pleasure to Serve you!";
+                        var ret = "hthttps://api.telegram.org/bot<botid>:<token>/sendMessage?chat_id="+chat_id+"&text=It's my pleasure to Serve you!";
                         https.get(ret,(res)=>{
                             res.on('end',()=>{
                                 console.log('LINK SEND');
@@ -152,14 +152,14 @@ let comm = "" ;
                         
                         })      //HELP ASSIST MESSAGE FOR USER ON DEMAND OF HELP
                         
-                        const delurl = "https://api.telegram.org/bot580065251:AAEGYP4PCYyk_0emgJR5eq2bCCDWb28_jsE/getUpdates?offset="+offset;
+                        const delurl = "https://api.telegram.org/bot<botid>:<token>/getUpdates?offset="+offset;
                         https.get(delurl,res=>{
                             console.log("Deleted");
                         }); // DELETING REQUEST FOR WRONG COMMAND
 
                     }else if(comm.charAt(0) == '!'){
 
-                        var ret = "https://api.telegram.org/bot580065251:AAEGYP4PCYyk_0emgJR5eq2bCCDWb28_jsE/sendMessage?chat_id="+chat_id+"&text=Opps,This command Out of my Scope!!!";
+                        var ret = "https://api.telegram.org/bot<botid>:<token>/sendMessage?chat_id="+chat_id+"&text=Opps,This command Out of my Scope!!!";
                         https.get(ret,(res)=>{
                             res.on('end',()=>{
                                 console.log('LINK SEND');
@@ -167,14 +167,14 @@ let comm = "" ;
                         
                         })
 
-                        const delurl = "https://api.telegram.org/bot580065251:AAEGYP4PCYyk_0emgJR5eq2bCCDWb28_jsE/getUpdates?offset="+offset;
+                        const delurl = "https://api.telegram.org/bot<botid>:<token>/getUpdates?offset="+offset;
                         // console.log(delurl);
                         https.get(delurl,res=>{
                             console.log("Deleted");
                         });    // IGNORING MESSAGES AND DELETING IT FROM TELEGRAM BOT REQUEST
 
                     }else{
-                        const delurl = "https://api.telegram.org/bot580065251:AAEGYP4PCYyk_0emgJR5eq2bCCDWb28_jsE/getUpdates?offset="+offset;
+                        const delurl = "hhttps://api.telegram.org/bot<botid>:<token>/getUpdates?offset="+offset;
                         // console.log(delurl);
                         https.get(delurl,res=>{
                             console.log("Deleted");
